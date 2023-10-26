@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mooli&family=Pixelify+Sans&family=Young+Serif&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'digital-7';
+            src: url('./digital-7.ttf');
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            font-family: 'digital-7';
+    
+            /* font-family: 'Mooli', sans-serif; */
+            /* font-family: 'Pixelify Sans', sans-serif; */
+           /* font-family: 'Young Serif', serif;  */
+
+        }
+
+
+        .submain {
+            width: 300px;
+            font-family: 'digital-7';
+            height: 350px;
+            position: relative;
+            background-image: url(./IMG_20230828_121551_043.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 20%;
+
+            border: 2px solid black;
+            /* border-style: double; */
+            border-width: 10px;
+            box-shadow: 0px 0px 0px 10px rgb(171,171,172);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .button1 {
+            width: 30px;
+            height: 65px;
+            border-radius: 20%;
+            background-color: rgb(52, 50, 50);
+            position: relative;
+            left: -5px;
+            top: -60px;
+            /* border: 3px dotted orange; */
+            transform: rotatey(120deg);
+            /* border-width: 10px; */
+
+        }
+
+        .numbring {
+            /* color: aliceblue; */
+            font-size: 55px;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            top: 170px;
+            transform: rotate(90deg);
+            left: 140px;
+            font-weight: 700;
+            
+        
+
+        }
+        #day{
+            font-size: 30px;
+            position: absolute;
+            top: 10px;
+            left: 180px;
+        }
+        .charge{
+            height: 35px;
+            position: absolute;
+            top: 1px;
+            left: 205px;
+        }
+        .up{
+            height: 90px;
+            position: absolute;
+            top: -107px;
+            z-index: -1;
+        }
+        .down{
+            height: 90px;
+            position: absolute;
+            top: 365px;
+            z-index: -1;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="submain">
+            <img class="up" src="./up.png" alt="">
+            <img class="down" src="./down.png" alt="">
+            <img class="charge" src="./pngwing.com (1).png" alt="">
+            <h5 style="color: rgb(230,89,57); " id="day"></h5>
+            <div class="numbring"></div>
+            <h6 id="date"></h6>
+        </div>
+        <div class="button1" onclick="showday()" style="cursor: pointer;"></div>
+    </div>
+
+    <script>
+
+
+
+
+
+
+        setInterval(() => {
+
+         
+            let currentTime = new Date()
+            let second = currentTime.getSeconds()
+            let minut = currentTime.getMinutes()
+            let hour = currentTime.getHours()
+            document.querySelector(".numbring").innerHTML = `${hour}:${minut}:${second}`
+        }, 1000)
+
+        const showday = () => {
+            const day = new Date().getDay()
+            arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Saturday"]
+            newDay = arr[day]
+            document.getElementById("day").innerHTML = newDay;
+        }
+
+    </script>
+</body>
+
+</html>
